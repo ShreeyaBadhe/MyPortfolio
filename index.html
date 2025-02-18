@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shreeya Badhe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        #hero {
+    height: 100vh;  /*Full viewport height */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('hero copy.jpg') center/cover no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    text-align: left;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background: linear-gradient(90deg, #be9f04, #be9f04);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #161516, #797779);
+    transform: scale(1.05);
+}
+
+/* Navigation Styles */
+nav {
+    position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hamburger {
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+            background: none;
+            border: none;
+            padding: 10px;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.9);
+            position: absolute;
+            top: 50px;
+            right: 0;
+            width: 250px;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .nav-links.show {
+            display: flex;
+        }
+        .nav-links li {
+            margin: 10px 0;
+            text-align: center;
+            list-style: none;
+        }
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            transition: 0.3s;
+        }
+        .nav-links li a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                background: none;
+                position: static;
+                width: auto;
+                padding: 0;
+            }
+            .nav-links li {
+                margin: 0 15px;
+            }
+            .hamburger {
+                display: none;
+            }
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background: #1e1e1e;
+            border-radius: 10px;
+        }
+
+        .social-icons {
+            position: absolute;
+            bottom: 60px; /* Adjust as needed */
+            left: 50px; /* Adjust as needed */
+            display: flex;
+            gap: 15px; /* Space between icons */
+        }
+        
+        .social-icons a {
+            color: white; /* Icon color */
+            font-size: 30px; /* Icon size */
+            transition: color 0.3s; /* Transition for hover effect */
+        }
+        
+        .social-icons a:hover {
+            color: #e9c408; /* Change color on hover */
+        }
+    
+        .about-section {
+            background: linear-gradient(45deg, #272727, #050505);
+            padding: 60px 20px;
+          }
+          
+          .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px; /* Space between text & photo */
+          }
+          /* “about-content” remains mostly the same */
+          .about-content {
+            flex: 1;
+            max-width: 600px;  /* optional limit on text width */
+          }
+          .about-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: white;
+          }
+          .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #ccc;
+            margin-bottom: 20px;
+          }
+          .about-content .btn {
+            margin-top: 10px;
+          }
+          /* Photo wrapper & photo style */
+          .about-photo {
+            
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            padding: 0px; /* Optional for spacing */
+             
+                 /*padding-left: 5px;  Optional for spacing */
+          }
+          .about-photo img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+          
+            /* If you want a smaller/larger photo, adjust width & height above. */
+          }
+      
+          /* Responsive layout: stack text & photo on narrow screens */
+          @media (max-width: 900px) {
+            .about-container {
+              flex-direction: column;
+              text-align: center;
+            }
+            .about-content, .about-photo {
+              max-width: 100%;
+            }
+            .about-photo img {
+              margin-top: 30px;
+            }
+          }
+        
+
+          #projects {
+            padding:20px; /* Remove extra spacing */
+            margin: 20px; /* Remove any margins */
+            background: none; /* Remove background color */
+            border: none; /* Remove any border */
+        }
+
+        /* 🔹 Projects Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ensures uniform size */
+            gap: 20px;
+            padding: 0;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 🔹 Individual Project Styling */
+        .project {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Default shadow */
+            width: 90%;
+            height: 250px; /* Ensures all projects are the same height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 🔹 Shadow Effect on Hover */
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Enhanced shadow */
+        }
+
+        /* 🔹 Project Image Styling */
+        .project img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images maintain aspect ratio */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* 🔹 Overlay for Hover Effect */
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* 🔹 Show Project Name on Hover */
+        .project:hover .overlay {
+            opacity: 1;
+        }
+
+        /* 🔹 Project Title in Overlay */
+        .overlay h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+            margin: 0;
+        }
+        
+
+        /* 🔹 Responsive Adjustments */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+            }
+        }
+        @media (max-width: 500px) {
+            .projects-grid {
+                grid-template-columns: repeat(1, 1fr); /* 1 column on mobile */
+            }
+        }
+
+form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        form input, form textarea, form button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        form button {
+            background: linear-gradient(90deg, #eab804, #6d6202);
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .container {
+            
+        display: flex;
+        gap: 40px;
+    }
+    .qualification, .experience {
+        flex: 1;
+    }
+    .highlight {
+        color: orange;
+    }
+    .timeline {
+        position: relative;
+    }
+    .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 15px;
+        width: 2px;
+        height: 100%;
+        background: orange;
+    }
+    .entry {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    .icon {
+        width: 40px;
+        height: 40px;
+        background: orange;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1.2rem;
+        position: relative;
+        z-index: 2;
+    }
+    .details {
+        background: #232323;
+        padding: 15px;
+        border-radius: 10px;
+        width: 100%;
+        margin-left: 15px;
+    }
+    .details h3 {
+        margin: 0;
+        color: white;
+    }
+    .details p {
+        margin: 5px 0 0;
+        color: #bbb;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+.skills-container {
+        display: flex;
+        gap: 40px;
+    }
+    .skills {
+        flex: 1;
+        background: linear-gradient(90deg, #020202, #2c2b2b);
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .skills h2 {
+        margin-bottom: 20px;
+        color: white;
+    }
+    .skill {
+        margin-bottom: 15px;
+    }
+    .skill p {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        font-weight: bold;
+    }
+    .progress-bar {
+        width: 100%;
+        background: #333;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .progress {
+        height: 10px;
+        background: orange;
+    }
+
+
+    #contact {
+    margin-top: -30px; /* Moves the section upward */
+}
+
+#contact div {
+    margin-top: -30px;
+}
+
+
+        button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header id="hero">
+        <div class="hero-content">
+            <h1>Shreeya Badhe</h1>
+            <p>Hi, I'm a passionate Data Science and Web Developer enthusiast</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+        <nav>
+            <button class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experiences">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/shreeya-badhe/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/your-profile" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+    </header>
+    
+    
+    <div id="about" class="about-section">
+        <!-- About container to line up text + photo -->
+        <div class="about-container">
+          <div class="about-content">
+            <h2 class="about-title">ABOUT</h2>
+            <p>
+              Data Science and Web Development enthusiast with experience in data 
+              analysis, machine learning, and website design. Passionate about 
+              crafting efficient solutions for modern challenges through analytical 
+              insights and web technologies.
+            </p>
+            <a href="https://drive.google.com/file/d/1J5Yi8PUiB24bThaRV7nEPtDR9xYxe_d2/view?usp=sharing"
+               class="btn"
+               download>
+              Download Resume
+            </a>
+          </div>
+    
+          <div class="about-photo">
+            <!-- Circular image -->
+            <img src="myprofile.jpg" alt="Your Photo">
+          </div>
+        </div>
+      </div>
+    
+    
+
+      <section id="projects">
+        <h2>My Recent Work</h2>
+        <div class="projects-grid">
+            <div class="project">
+                <img src="sentiment_analysis.jpg" alt="Flyer Design">
+                <div class="overlay">
+                    <h3>Sentiment Analysis</h3>
+                    <p>Built a sentiment classifier with Word2Vec, trained SVM & Perceptron, optimized with Gensim, NumPy, and pandas.</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="EDA.jpg" alt="Banner Design">
+                <div class="overlay">
+                    <h3>Exploratory Data Analysis</h3>
+                    <p>EDA on Global Population using Pandas, Matlplotlib and Seaborn  .</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="powerbi.jpg" alt="Disk Cover">
+                <div class="overlay">
+                    <h3>Data Professional Survey</h3>
+                    <p>Data Professional Survey Breakdown using PowerBI. </p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="spaceship.jpg" alt="Pattern Design">
+                <div class="overlay">
+                    <h3>Spaceship Animation</h3>
+                    <p>Spaceship Animation using OpenGL.</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="oil_slicks.jpg" alt="Logo Design">
+                <div class="overlay">
+                    <h3>Oil Slicks</h3>
+                    <p>Oil slicks effect using shaders</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="house_price.jpg" alt="Logo Design">
+                <div class="overlay">
+                    <h3>House Price Prediction</h3>
+                    <p>Built a Ridge Regression model (RMSLE 0.11) with polynomial features, optimized preprocessing, and fine-tuned hyperparameters.</p>
+                </div>
+            </div>
+            <div class="project">
+                <img src="more.jpg" alt="Animal Pattern">
+                <div class="overlay">
+                    <h3>More Interesting Projects</h3>
+                   
+                </div>
+            </div>
+           
+            
+        </div>    
+    </section>
+   
+    
+    <section id="experiences" class="qualification-experience">
+        <div class="container">
+            <div class="qualification">
+                <h2><span>ACADEMIC</span> <span class="highlight">QUALIFICATION</span></h2>
+                <div class="timeline">
+                    <div class="entry">
+                        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="details">
+                            <h3>Masters in Computer Science</h3>
+                            <p>Oregon State University (2023 - 2025)</p>
+                        </div>
+                    </div>
+                    <div class="entry">
+                        <div class="icon"><i class="fas fa-school"></i></div>
+                        <div class="details">
+                            <h3>Bachelor's in Computer Science</h3>
+                            <p>JB Institute of Engineering and Technology (2019 - 2023)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="experience">
+                <h2><span>JOB</span> <span class="highlight">EXPERIENCE</span></h2>
+                <div class="timeline">
+                    <div class="entry">
+                        <div class="icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="details">
+                            <h3>Software Developer</h3>
+                            <p>Extension Services (Dec 2024 - present)</p>
+                        </div>
+                    </div>
+                    <div class="entry">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <div class="details">
+                            <h3>Data Analyst</h3>
+                            <p>Simplepos (Sep 2024 - Feb 2025)</p>
+                        </div>
+                    </div>
+                    <div class="entry">
+                        <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="details">
+                            <h3>Oregon State University IT</h3>
+                            <p>Digital Experience Assistant (Nov 2024 - present)</p>
+                        </div>
+                    </div>
+                    <div class="entry">
+                        <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="details">
+                            <h3>Outdoor School Extension Services</h3>
+                            <p>Website Assistant (Sep 2024 - Nov 2024)</p>
+                        </div>
+                    </div>
+                    <div class="entry">
+                        <div class="icon"><i class="fas fa-code"></i></div>
+                        <div class="details">
+                            <h3>Machine Learning Intern</h3>
+                            <p>Pantech Solutions (Dec 2021 -Mar 2022)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+           
+            
+   
+    
+    <section id="skills">
+  
+    <div class="skills-container">
+        <div class="skills">
+            <h2><span>DATA ANALYSIS SKILLS</span></h2>
+            <div class="skill">
+                <p>Python <span>85%</span></p>
+                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill">
+                <p>C++ <span>95%</span></p>
+                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill">
+                <p>PowerBI <span>90%</span></p>
+                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill">
+                <p>Machine Learning <span>75%</span></p>
+                <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+            </div>
+            <div class="skill">
+                <p>SQL <span>95%</span></p>
+                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+        </div>
+        
+        <div class="skills">
+            <h2><span>WEB DESIGN SKILLS</span></h2>
+            <div class="skill">
+                <p>HTML <span>95%</span></p>
+                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill">
+                <p>CSS <span>95%</span></p>
+                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill">
+                <p>JavaScript <span>95%</span></p>
+                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill">
+                <p>Drupal <span>95%</span></p>
+                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+            </div>
+        </div>
+    
+    </div>
+    </section>
+    
+
+    <section id="contact">
+        <h2 style="color: white; font-size: 2rem; margin-left: 30px;">Contact Me</h2>
+
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 30px; background: #1e1e1e; border-radius: 10px;">
+            <!-- Avatar Image -->
+            <div style="flex: 1; text-align: center;">
+                <img src="avatar.jpg" alt="Your Avatar" style="width: 200px; height: 200px; border-radius: 50%">
+            </div>
+            
+            <!-- Contact Form -->
+            <div style="flex: 2;">
+                <p style="color: #ccc; font-size: 1.2rem; margin-left: 50px;">Send me an email</p>
+                
+                <form action="https://formspree.io/f/xanqdrpw" method="POST" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px;">
+                    <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 5px; border: none; font-size: 16px;">
+                    <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 5px; border: none; font-size: 16px;">
+                    <textarea name="message" placeholder="Your Message" rows="4" required style="padding: 10px; border-radius: 5px; border: none; font-size: 16px;"></textarea>
+                    <button type="submit" style="background: linear-gradient(90deg, #d59e06, #644d02); color: white; cursor: pointer; font-weight: bold; padding: 10px; border: none; border-radius: 5px; font-size: 16px;">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        }
+    </script>
+
+</body>
+</html>
