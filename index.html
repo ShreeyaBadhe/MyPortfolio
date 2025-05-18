@@ -27,6 +27,8 @@ html {
     scroll-padding-top: 80px;
     scroll-behavior: smooth;
   }
+  
+
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 10px;
@@ -221,16 +223,16 @@ nav {
         
 
           #projects {
-            padding:20px; /* Remove extra spacing */
-            margin: 20px; /* Remove any margins */
-            background: none; /* Remove background color */
-            border: none; /* Remove any border */
+            padding:20px; 
+            margin: 20px; 
+            background: none; 
+            border: none; 
         }
 
         /* 🔹 Projects Grid Layout */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ensures uniform size */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
             gap: 20px;
             padding: 0;
             max-width: 1100px;
@@ -243,9 +245,9 @@ nav {
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Default shadow */
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); 
             width: 90%;
-            height: 250px; /* Ensures all projects are the same height */
+            height: 250px; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -254,14 +256,14 @@ nav {
         /* 🔹 Shadow Effect on Hover */
         .project:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Enhanced shadow */
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); 
         }
 
         /* 🔹 Project Image Styling */
         .project img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures images maintain aspect ratio */
+            object-fit: cover; 
             transition: opacity 0.3s ease-in-out;
         }
 
@@ -432,7 +434,7 @@ form {
 
 
     #contact {
-    margin-top: -30px; /* Moves the section upward */
+    margin-top: -30px; 
 }
 
 #contact div {
@@ -472,7 +474,7 @@ form {
             <a href="https://www.linkedin.com/in/shreeya-badhe/" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="https://github.com/your-profile" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/ShreeyaBadhe" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i>
             </a>
         </div>
@@ -509,14 +511,15 @@ form {
       <section id="projects">
         <h2>My Recent Work</h2>
         <div class="projects-grid">
-            <div class="project">
-                <img src="sentiment_analysis.jpg" alt="Flyer Design">
-                <div class="overlay">
-                    <h3>Sentiment Analysis</h3>
-                    <p>Built a sentiment classifier with Word2Vec, trained SVM & Perceptron, optimized with Gensim, NumPy, and pandas.</p>
-                </div>
-            </div>
-            <div class="project">
+         <a href="https://github.com/ShreeyaBadhe/Sentiment-Analysis.git" target="_blank" class="project">
+            <img src="sentiment_analysis.jpg" alt="Flyer Design">
+            <div class="overlay">
+            <h3>Sentiment Analysis</h3>
+            <p>Built a sentiment classifier with Word2Vec, trained SVM & Perceptron, optimized with Gensim, NumPy, and pandas.</p>
+        </div>
+        </a>
+
+        <div class="project">
                 <img src="EDA.jpg" alt="Banner Design">
                 <div class="overlay">
                     <h3>Exploratory Data Analysis</h3>
@@ -524,40 +527,40 @@ form {
                 </div>
             </div>
             <div class="project">
-                <img src="powerbi.jpg" alt="Disk Cover">
+                <img src="powerbi.jpg" alt="dashboard">
                 <div class="overlay">
                     <h3>Data Professional Survey</h3>
                     <p>Data Professional Survey Breakdown using PowerBI. </p>
                 </div>
             </div>
             <div class="project">
-                <img src="spaceship.jpg" alt="Pattern Design">
+                <img src="spaceship.jpg" alt="SpaceShip">
                 <div class="overlay">
                     <h3>Spaceship Animation</h3>
                     <p>Spaceship Animation using OpenGL.</p>
                 </div>
             </div>
-            <div class="project">
+            <a href="https://github.com/ShreeyaBadhe/Shaders.git" target="_blank" class="project">
                 <img src="oil_slicks.jpg" alt="Logo Design">
                 <div class="overlay">
                     <h3>Oil Slicks</h3>
                     <p>Oil slicks effect using shaders</p>
                 </div>
-            </div>
-            <div class="project">
+            </a>
+            <a href="https://github.com/ShreeyaBadhe/House-Price-Prediction.git" target="_blank" class="project">
                 <img src="house_price.jpg" alt="Logo Design">
                 <div class="overlay">
                     <h3>House Price Prediction</h3>
                     <p>Built a Ridge Regression model (RMSLE 0.11) with polynomial features, optimized preprocessing, and fine-tuned hyperparameters.</p>
                 </div>
-            </div>
-            <div class="project">
+            </a>
+            <a href="https://github.com/ShreeyaBadhe" target="_blank" class="project">
                 <img src="more.jpg" alt="Animal Pattern">
                 <div class="overlay">
                     <h3>More Interesting Projects</h3>
                    
                 </div>
-            </div>
+            </a>
            
             
         </div>    
@@ -600,7 +603,7 @@ form {
                         <div class="icon"><i class="fas fa-code"></i></div>
                         <div class="details">
                             <h3>Data Analyst</h3>
-                            <p>Simplepos (Sep 2024 - Feb 2025)</p>
+                            <p>Simplpos (Sep 2024 - Feb 2025)</p>
                         </div>
                     </div>
                     <div class="entry">
