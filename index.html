@@ -240,18 +240,18 @@ nav {
         }
 
         /* 🔹 Individual Project Styling */
-        .project {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); 
-            width: 90%;
-            height: 250px; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+       .project {
+    position: relative;
+    border-radius: 0;
+    box-shadow: none;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    overflow: hidden;
+}
 
         /* 🔹 Shadow Effect on Hover */
         .project:hover {
@@ -261,12 +261,12 @@ nav {
 
         /* 🔹 Project Image Styling */
         .project img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            transition: opacity 0.3s ease-in-out;
-        }
-
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+}
         /* 🔹 Overlay for Hover Effect */
         .overlay {
             position: absolute;
@@ -449,13 +449,67 @@ form {
             padding: 10px;
             cursor: pointer;
         }
+.cool-project-card {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cool-project-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+.cool-project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0;
+}
+
+.cool-overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: opacity 0.3s ease;
+}
+
+.cool-project-card:hover .cool-overlay {
+    opacity: 1;
+}
+
+.cool-overlay h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #f6c90e;
+}
+
+.cool-overlay p {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: #ccc;
+}
+
+
     </style>
 </head>
 <body>
     <header id="hero">
         <div class="hero-content">
             <h1>Shreeya Badhe</h1>
-            <p>Hi, I'm a passionate Data Science and Web Developer enthusiast</p>
+            <p>Hi, I'm a passionate Data Analyst who enjoys working with data to find insights.</p>
             <a href="#projects" class="btn">View My Work</a>
         </div>
         <nav>
@@ -508,63 +562,106 @@ form {
     
     
 
-      <section id="projects">
-        <h2>My Recent Work</h2>
-        <div class="projects-grid">
-         <a href="https://github.com/ShreeyaBadhe/Sentiment-Analysis.git" target="_blank" class="project">
-            <img src="sentiment_analysis.jpg" alt="Flyer Design">
-            <div class="overlay">
-            <h3>Sentiment Analysis</h3>
-            <p>Built a sentiment classifier with Word2Vec, trained SVM & Perceptron, optimized with Gensim, NumPy, and pandas.</p>
-        </div>
-        </a>
+     <section id="projects">
+    <h2>Data Analysis Projects</h2>
 
-        <div class="project">
-                <img src="EDA.jpg" alt="Banner Design">
-                <div class="overlay">
-                    <h3>Exploratory Data Analysis</h3>
-                    <p>EDA on Global Population using Pandas, Matlplotlib and Seaborn  .</p>
-                </div>
-            </div>
-            <div class="project">
-                <img src="powerbi.jpg" alt="dashboard">
-                <div class="overlay">
-                    <h3>Data Professional Survey</h3>
-                    <p>Data Professional Survey Breakdown using PowerBI. </p>
-                </div>
-            </div>
-            <div class="project">
-                <img src="spaceship.jpg" alt="SpaceShip">
-                <div class="overlay">
-                    <h3>Spaceship Animation</h3>
-                    <p>Spaceship Animation using OpenGL.</p>
-                </div>
-            </div>
-            <a href="https://github.com/ShreeyaBadhe/Shaders.git" target="_blank" class="project">
-                <img src="oil_slicks.jpg" alt="Logo Design">
-                <div class="overlay">
-                    <h3>Oil Slicks</h3>
-                    <p>Oil slicks effect using shaders</p>
-                </div>
-            </a>
-            <a href="https://github.com/ShreeyaBadhe/House-Price-Prediction.git" target="_blank" class="project">
-                <img src="house_price.jpg" alt="Logo Design">
-                <div class="overlay">
-                    <h3>House Price Prediction</h3>
-                    <p>Built a Ridge Regression model (RMSLE 0.11) with polynomial features, optimized preprocessing, and fine-tuned hyperparameters.</p>
-                </div>
-            </a>
-            <a href="https://github.com/ShreeyaBadhe" target="_blank" class="project">
-                <img src="more.jpg" alt="Animal Pattern">
-                <div class="overlay">
-                    <h3>More Interesting Projects</h3>
-                   
-                </div>
-            </a>
+    <!-- 🔹 Power BI Embeds: 2x2 Layout -->
+    <div class="projects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+        <!-- Embed 1 -->
+        <iframe title="carsales_dashboard" width="100%" height="250" src="https://app.powerbi.com/reportEmbed?reportId=64740f0c-3e55-4f94-9e80-c3bbe8bc0c81&autoAuth=true&ctid=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113" frameborder="0" allowFullScreen="true"></iframe>
+
+        <!-- Embed 2 -->
+        <iframe title="Final_Project" width="100%" height="250" src="https://app.powerbi.com/reportEmbed?reportId=5cfa3a1a-61fe-419a-bb12-fdd2b8bbec03&autoAuth=true&ctid=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113" frameborder="0" allowFullScreen="true"></iframe>
+
+        <!-- Embed 3 -->
+        <iframe title="Powerbi_1" width="100%" height="250" src="https://app.powerbi.com/reportEmbed?reportId=abee156c-4acc-4758-8c66-003a294d74d5&autoAuth=true&ctid=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113" frameborder="0" allowFullScreen="true"></iframe>
+
+        <!-- Embed 4 (Fixed width issue) -->
+        <iframe title="powerbi_2" width="100%" height="250" src="https://app.powerbi.com/reportEmbed?reportId=b9cf6b0f-af80-4842-b8e7-a7fa1c8ba4ff&autoAuth=true&ctid=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+
+    <!-- 🔹 SQL, Excel, Machine Learning Projects (2x2 Layout) -->
+    <div class="projects-grid" style="margin-top: 40px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+    <a href="https://drive.google.com/file/d/1qBYITVeou-lsyk-Kg3OvUvjSonp9tkdE/view?usp=sharing" target="_blank" class="project">
+        <img src="carsales.jpg" alt="SQL Project">
+        <div class="overlay">
+            <h3>SQL Insights</h3>
+            <p>Analyzed large datasets using SQL queries to identify trends and key metrics.</p>
+        </div>
+    </a>
+
+    <a href="https://docs.google.com/spreadsheets/d/1_e2NUd1fX5zClKL-qj-LNVco69jnkNlz/edit?usp=sharing&ouid=107652725402534810944&rtpof=true&sd=true" target="_blank" class="project">
+        <img src="winesales.jpg" alt="Excel Project">
+        <div class="overlay">
+            <h3>Excel Dashboard</h3>
+            <p>Created Excel dashboards and KPI metrics to summarize business performance.</p>
+        </div>
+    </a>
+
+    <a href="https://github.com/ShreeyaBadhe/Sentiment-Analysis.git" target="_blank" class="project">
+        <img src="sentiment_analysis.jpg" alt="ML Project">
+        <div class="overlay">
+            <h3>Sentiment Analysis</h3>
+            <p>Built a sentiment classifier with Word2Vec, trained SVM & Perceptron, optimized with Gensim, NumPy, and pandas</p>
+        </div>
+    </a>
+
+    <a href="https://github.com/ShreeyaBadhe/House-Price-Prediction.git" target="_blank" class="project">
+        <img src="house_price.jpg" alt="ML Project 2">
+        <div class="overlay">
+            <h3>House Price Prediction</h3>
+            <p>Built a Ridge Regression model (RMSLE 0.11) with polynomial features, optimized preprocessing, and fine-tuned hyperparameters.</p>
+        </div>
+    </a>
+</div>
+
+<section id="cool-builds">
+  <h2 style="text-align: center; font-size: 2rem; margin-bottom: 30px;">Cool Builds</h2>
+  <div class="projects-grid" style="grid-template-columns: repeat(4, 1fr); gap: 20px; background: none; border: none;">
+
+    <!-- Oil Slick Shader -->
+    <a href="https://github.com/ShreeyaBadhe/Shaders.git" target="_blank" class="cool-project-card">
+      <img src="oil_slicks.png" alt="Oil Slicks Shader">
+      <div class="cool-overlay">
+        <h3>Oil Slicks Shader</h3>
+        <p>Shiny animated shader effect created with OpenGL & GLSL.</p>
+      </div>
+    </a>
+
+    <!-- Spaceship Animation -->
+    <a href="https://media.oregonstate.edu/media/t/1_uzagfjip" target="_blank" class="cool-project-card">
+      <img src="spaceship.jpg" alt="Spaceship Animation">
+      <div class="cool-overlay">
+        <h3>Spaceship Animation</h3>
+        <p>OpenGL-based spaceship animation with lighting and motion.</p>
+      </div>
+    </a>
+
+    <!-- Linear Hashing Project -->
+    <a href="https://github.com/ShreeyaBadhe/DBMS" target="_blank" class="cool-project-card">
+      <img src="database.jpg" alt="Linear Hashing Project">
+      <div class="cool-overlay">
+        <h3>Employee Indexing in C++</h3>
+        <p>Fast employee record lookup using linear hashing & binary file storage.</p>
+      </div>
+    </a>
+
+    <!-- More Projects -->
+    <a href="https://github.com/ShreeyaBadhe" target="_blank" class="cool-project-card">
+      <img src="more.jpg" alt="More Cool Projects">
+      <div class="cool-overlay">
+        <h3>More Cool Projects</h3>
+        <p>Click here to explore more of my creative builds and code demos.</p>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+
+
+
            
-            
-        </div>    
-    </section>
    
     
     <section id="experiences" class="qualification-experience">
