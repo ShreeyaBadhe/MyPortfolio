@@ -256,7 +256,7 @@ nav {
         /* 🔹 Shadow Effect on Hover */
         .project:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); 
+            box-shadow: 0 0 30px rgba(241, 202, 6, 0.5);
         }
 
         /* 🔹 Project Image Styling */
@@ -398,6 +398,17 @@ form {
             text-align: center;
         }
     }
+    .glow-thumb {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+.glow-thumb:hover {
+  box-shadow: 0 0 10px 4px #f6c90e;
+}
+
 .skills-container {
         display: flex;
         gap: 40px;
@@ -460,7 +471,7 @@ form {
 
 .cool-project-card:hover {
     transform: scale(1.03);
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(241, 202, 6, 1);
 }
 
 .cool-project-card img {
@@ -503,6 +514,7 @@ form {
 }
 
 
+
     </style>
 </head>
 <body>
@@ -522,6 +534,7 @@ form {
                 <li><a href="#apps">Apps</a></li>
                 <li><a href="#experiences">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -674,7 +687,7 @@ form {
     </a>
 
     <!-- Web Scraping App -->
-    <a href="https://retail-analysis-7umlmqebqmbcihvahmc6ur.streamlit.app/" target="_blank" class="cool-project-card">
+    <a href="https://github.com/ShreeyaBadhe/Retail-Price-Tracker" target="_blank" class="cool-project-card">
       <img src="webscraper_app.jpg" alt="Retail Price Tracker">
       <div class="cool-overlay">
         <h3>Retail Price Tracker</h3>
@@ -807,7 +820,30 @@ form {
     
     </div>
     </section>
-    
+   <section id="certifications" style="padding: 40px 20px; background: #1e1e1e; border-radius: 10px; margin: 20px;">
+  <h2 style="color: white; font-size: 2rem; margin-bottom: 30px;">Certifications</h2>
+
+  <div style="display: flex; flex-direction: column; gap: 20px;">
+
+    <!-- Certification 1 -->
+    <a href="https://www.credly.com/badges/34db7158-dbed-4dd8-8dff-f512479b0afc/linked_in_profile" target="_blank"
+       style="display: flex; align-items: center; gap: 20px; background: #2a2a2a; padding: 15px; border-radius: 10px; text-decoration: none;">
+
+      <!-- Small square thumbnail with glow -->
+      <img src="certification_badge.png" alt="Google Data Analyst Badge" class="glow-thumb">
+
+      <!-- Certification details -->
+      <div>
+        <h3 style="color: #f6c90e; margin: 0;">Google Data Analytics</h3>
+        <p style="margin: 5px 0 0; color: #ccc;">Professional Certificate – Issued by Google via Coursera</p>
+      </div>
+
+    </a>
+
+  </div>
+</section>
+
+
 
     <section id="contact">
         <h2 style="color: white; font-size: 2rem; margin-left: 30px;">Contact Me</h2>
@@ -836,9 +872,6 @@ form {
             document.querySelector('.nav-links').classList.toggle('show');
         }
     </script>
-
-
-
 
 </body>
 </html>
