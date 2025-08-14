@@ -1,878 +1,828 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shreeya Badhe</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            background-color: #121212;
-            color: white;
-            font-family: Arial, sans-serif;
-        }
-        #hero {
-    height: 100vh;  /*Full viewport height */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('hero copy.jpg') center/cover no-repeat;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    text-align: left;
-    padding: 20px;
-}
-html {
-    scroll-padding-top: 80px;
-    scroll-behavior: smooth;
-  }
-  
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    color: white;
-    background: linear-gradient(90deg, #be9f04, #be9f04);
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: linear-gradient(90deg, #161516, #797779);
-    transform: scale(1.05);
-}
-
-/* Navigation Styles */
-nav {
-    position: fixed;
-            top: 0;
-            right: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 15px 20px;
-            z-index: 1000;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-        .hamburger {
-            display: block;
-            font-size: 24px;
-            cursor: pointer;
-            color: white;
-            background: none;
-            border: none;
-            padding: 10px;
-        }
-        .nav-links {
-            display: none;
-            flex-direction: column;
-            background: rgba(0, 0, 0, 0.9);
-            position: absolute;
-            top: 50px;
-            right: 0;
-            width: 250px;
-            border-radius: 8px;
-            padding: 10px;
-        }
-        .nav-links.show {
-            display: flex;
-        }
-        .nav-links li {
-            margin: 10px 0;
-            text-align: center;
-            list-style: none;
-        }
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: block;
-            padding: 10px;
-            transition: 0.3s;
-        }
-        .nav-links li a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-        }
-
-        /* Responsive Styles */
-        @media (min-width: 768px) {
-            .nav-links {
-                display: flex;
-                flex-direction: row;
-                background: none;
-                position: static;
-                width: auto;
-                padding: 0;
-            }
-            .nav-links li {
-                margin: 0 15px;
-            }
-            .hamburger {
-                display: none;
-            }
-        }
-        section {
-            padding: 20px;
-            margin: 20px;
-            background: #1e1e1e;
-            border-radius: 10px;
-        }
-
-        .social-icons {
-            position: absolute;
-            bottom: 60px; /* Adjust as needed */
-            left: 50px; /* Adjust as needed */
-            display: flex;
-            gap: 15px; /* Space between icons */
-        }
-        
-        .social-icons a {
-            color: white; /* Icon color */
-            font-size: 60px; /* Icon size */
-            transition: color 0.3s; /* Transition for hover effect */
-        }
-        
-        .social-icons a:hover {
-            color: #e9c408; /* Change color on hover */
-        }
-    
-        .about-section {
-            background: linear-gradient(45deg, #272727, #050505);
-            padding: 60px 20px;
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - Shreeya Badhe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#5D5CDE',
+            secondary: '#38BDF8',
+            accent: '#8B5CF6',
           }
-          
-          .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px; /* Space between text & photo */
-          }
-          /* “about-content” remains mostly the same */
-          .about-content {
-            flex: 1;
-            max-width: 600px;  /* optional limit on text width */
-          }
-          .about-title {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: white;
-          }
-          .about-content p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #ccc;
-            margin-bottom: 20px;
-          }
-          .about-content .btn {
-            margin-top: 10px;
-          }
-          /* Photo wrapper & photo style */
-          .about-photo {
-            
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
-            padding: 0px; /* Optional for spacing */
-             
-                 /*padding-left: 5px;  Optional for spacing */
-          }
-          .about-photo img {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 50%;
-          
-            /* If you want a smaller/larger photo, adjust width & height above. */
-          }
-      
-          /* Responsive layout: stack text & photo on narrow screens */
-          @media (max-width: 900px) {
-            .about-container {
-              flex-direction: column;
-              text-align: center;
-            }
-            .about-content, .about-photo {
-              max-width: 100%;
-            }
-            .about-photo img {
-              margin-top: 30px;
-            }
-          }
-        
-
-          #projects {
-            padding:20px; 
-            margin: 20px; 
-            background: none; 
-            border: none; 
         }
-
-        /* 🔹 Projects Grid Layout */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            gap: 20px;
-            padding: 0;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* 🔹 Individual Project Styling */
-       .project {
-    position: relative;
-    border-radius: 0;
-    box-shadow: none;
-    width: 100%;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    overflow: hidden;
-}
-
-        /* 🔹 Shadow Effect on Hover */
-        .project:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(241, 202, 6, 0.5);
-        }
-
-        /* 🔹 Project Image Styling */
-        .project img {
-    flex: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 0;
-}
-        /* 🔹 Overlay for Hover Effect */
-        .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        /* 🔹 Show Project Name on Hover */
-        .project:hover .overlay {
-            opacity: 1;
-        }
-
-        /* 🔹 Project Title in Overlay */
-        .overlay h3 {
-            font-size: 1.4rem;
-            font-weight: bold;
-            text-align: center;
-            margin: 0;
-        }
-        
-
-        /* 🔹 Responsive Adjustments */
-        @media (max-width: 768px) {
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-            }
-        }
-        @media (max-width: 500px) {
-            .projects-grid {
-                grid-template-columns: repeat(1, 1fr); /* 1 column on mobile */
-            }
-        }
-
-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        form input, form textarea, form button {
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
-        }
-
-        form button {
-            background: linear-gradient(90deg, #eab804, #6d6202);
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        
-        .container {
-            
-        display: flex;
-        gap: 40px;
+      }
     }
-    .qualification, .experience {
-        flex: 1;
+  </script>
+  <style>
+    .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    .gradient-border {
+      background: linear-gradient(45deg, #667eea, #764ba2, #38BDF8, #8B5CF6);
+      background-size: 300% 300%;
+      animation: gradientShift 3s ease infinite;
     }
-    .highlight {
-        color: orange;
+    .gradient-text {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
-    .timeline {
-        position: relative;
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
-    .timeline::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 15px;
-        width: 2px;
-        height: 100%;
-        background: orange;
-    }
-    .entry {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        position: relative;
-    }
-    .icon {
-        width: 40px;
-        height: 40px;
-        background: orange;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 1.2rem;
-        position: relative;
-        z-index: 2;
-    }
-    .details {
-        background: #232323;
-        padding: 15px;
-        border-radius: 10px;
-        width: 100%;
-        margin-left: 15px;
-    }
-    .details h3 {
-        margin: 0;
-        color: white;
-    }
-    .details p {
-        margin: 5px 0 0;
-        color: #bbb;
-    }
+    .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .slide-in-left { opacity: 0; transform: translateX(-50px); transition: all 0.6s ease-out; }
+    .slide-in-left.visible { opacity: 1; transform: translateX(0); }
+    .slide-in-right { opacity: 0; transform: translateX(50px); transition: all 0.6s ease-out; }
+    .slide-in-right.visible { opacity: 1; transform: translateX(0); }
+    .hero-bg { background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%); }
+    .section-bg { background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%); }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .container {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+    /* 1) Typewriter caret */
+    .type-caret::after{ content:"|"; margin-left:.2rem; animation: caret 1s steps(1) infinite; }
+    @keyframes caret{50%{opacity:0}}
+
+    /* 2) Magnetic buttons */
+    .magnet { transition: transform .12s ease-out; will-change: transform; }
+
+    /* 4) Staggered reveal */
+    .stagger > * { opacity:0; transform: translateY(16px); transition: all .5s ease; }
+    .stagger.visible > * { opacity:1; transform:none; }
+    .stagger.visible > *:nth-child(1){ transition-delay:.05s }
+    .stagger.visible > *:nth-child(2){ transition-delay:.12s }
+    .stagger.visible > *:nth-child(3){ transition-delay:.19s }
+    .stagger.visible > *:nth-child(4){ transition-delay:.26s }
+
+    /* 5) Tilt on hover */
+    .tilt {
+      transform-style: preserve-3d;
+      transform: perspective(800px) rotateX(0) rotateY(0);
+      transition: transform .15s ease, box-shadow .2s ease;
     }
-    .glow-thumb {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: box-shadow 0.3s ease;
-}
-.glow-thumb:hover {
-  box-shadow: 0 0 10px 4px #f6c90e;
-}
+    .tilt:hover { box-shadow: 0 20px 40px rgba(0,0,0,.08); }
 
-.skills-container {
-        display: flex;
-        gap: 40px;
+    /* 7) Timeline draw-in */
+    .timeline { position:relative; }
+    .timeline::before{
+      content:""; position:absolute; left:1rem; top:0; width:2px; height:0;
+      background: linear-gradient(to bottom,#5D5CDE,#38BDF8); transition: height 1.2s ease-out;
     }
-    .skills {
-        flex: 1;
-        background: linear-gradient(90deg, #020202, #2c2b2b);
-        padding: 20px;
-        border-radius: 10px;
-    }
-    .skills h2 {
-        margin-bottom: 20px;
-        color: white;
-    }
-    .skill {
-        margin-bottom: 15px;
-    }
-    .skill p {
-        display: flex;
-        justify-content: space-between;
-        color: white;
-        font-weight: bold;
-    }
-    .progress-bar {
-        width: 100%;
-        background: #333;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-    .progress {
-        height: 10px;
-        background: orange;
-    }
+    .timeline.visible::before{ height:100%; }
 
-
-    #contact {
-    margin-top: -30px; 
-}
-
-#contact div {
-    margin-top: -30px;
-}
-
-
-        button {
-            background: #333;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-.cool-project-card {
-    position: relative;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 0;
-    box-shadow: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cool-project-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 30px rgba(241, 202, 6, 1);
-}
-
-.cool-project-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 0;
-}
-
-.cool-overlay {
-    position: absolute;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    transition: opacity 0.3s ease;
-}
-
-.cool-project-card:hover .cool-overlay {
-    opacity: 1;
-}
-
-.cool-overlay h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: #f6c90e;
-}
-
-.cool-overlay p {
-    font-size: 0.9rem;
-    margin-top: 5px;
-    color: #ccc;
-}
-
-
-
-    </style>
+    /* 8) Skill bars animate */
+    .skill { width: 0; transition: width 1.2s ease; } /* no !important */
+  </style>
 </head>
-<body>
-    <header id="hero">
-        <div class="hero-content">
-            <h1>Shreeya Badhe</h1>
-            <p>Hi, I'm a passionate Data Analyst who enjoys working with data to find insights.</p>
-            <a href="#apps" class="btn">View My Recent Work</a>
-        </div>
-        <nav>
-            <button class="hamburger" onclick="toggleMenu()">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#apps">Apps</a></li>
-                <li><a href="#experiences">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/shreeya-badhe/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/ShreeyaBadhe" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-    </header>
-    
-    
-    <div id="about" class="about-section">
-        <!-- About container to line up text + photo -->
-        <div class="about-container">
-          <div class="about-content">
-            <h2 class="about-title">ABOUT</h2>
-            <p>
-              Hi, I’m Shreeya! I’m a Computer Science graduate student with a passion for making sense of messy data.
-              I enjoy uncovering patterns, solving problems, and turning raw information into clear, meaningful insights. 
-              Whether I’m building dashboards, analyzing trends, or creating predictive models, I love the process of exploring data and finding stories within the numbers.
-              With hands-on experience in tools like Python, SQL, Power BI, and Tableau, I’m always excited to learn, improve, and take on new challenges in the world of data.
-            </p>
-            <a href="https://drive.google.com/file/d/1HaSzHXSFTO88jX18EWCyeA8VjM5mMgcn/view?usp=sharing"
-               class="btn"
-               download>
-              Download Resume
-            </a>
-          </div>
-    
-          <div class="about-photo">
-            <!-- Circular image -->
-            <img src="myprofile.jpg" alt="Your Photo">
-          </div>
+<body class="font-sans text-gray-800">
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-bold gradient-text">Portfolio</h1>
+        <div class="hidden md:flex space-x-8">
+          <a href="#hero" class="hover:text-primary transition-colors">Home</a>
+          <a href="#about" class="hover:text-primary transition-colors">About</a>
+          <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+          <a href="#apps" class="hover:text-primary transition-colors">Apps</a>
+          <a href="#experience" class="hover:text-primary transition-colors">Experience</a>
+          <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+          <a href="#certifications" class="hover:text-primary transition-colors">Certifications</a>
+          <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
         </div>
       </div>
-    
-    
+    </div>
+  </nav>
 
-     <section id="projects">
-    <h2>Data Analysis Projects</h2>
+  <!-- 6) Scroll progress bar -->
+  <div id="scrollbar" class="fixed left-0 h-1 bg-primary/70 z-50" style="width:0; top:0"></div>
 
-    <!-- 🔹 Power BI Embeds: 2x2 Layout -->
-    <div class="projects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
-        <!-- Embed 1 -->
-        <iframe title="carsales_dashboard" width="100%" height="250" src="https://app.powerbi.com/reportEmbed?reportId=64740f0c-3e55-4f94-9e80-c3bbe8bc0c81&autoAuth=true&ctid=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113" frameborder="0" allowFullScreen="true"></iframe>
-
-        <!-- Embed 2 -->
-        <iframe title="Final_Project" width="100%" height="250" src="https://app.powerbi.com/reportEmbed?reportId=5cfa3a1a-61fe-419a-bb12-fdd2b8bbec03&autoAuth=true&ctid=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113" frameborder="0" allowFullScreen="true"></iframe>
-
-        <!-- Embed 3 -->
-        <iframe title="Powerbi_1" width="100%" height="250" src="https://app.powerbi.com/reportEmbed?reportId=abee156c-4acc-4758-8c66-003a294d74d5&autoAuth=true&ctid=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113" frameborder="0" allowFullScreen="true"></iframe>
-
-        <!-- Embed 4 (Fixed width issue) -->
-        <iframe title="powerbi_2" width="100%" height="250" src="https://app.powerbi.com/reportEmbed?reportId=b9cf6b0f-af80-4842-b8e7-a7fa1c8ba4ff&autoAuth=true&ctid=ce6d05e1-3c5e-4d62-87a8-4c4a2713c113" frameborder="0" allowFullScreen="true"></iframe>
+  <!-- Hero Section -->
+  <section id="hero" class="relative min-h-screen hero-bg flex items-center justify-center pt-20">
+    <!-- 3) Parallax blobs -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+      <div id="blob1" class="absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-40"
+           style="background:radial-gradient(circle,#5D5CDE,transparent 60%)"></div>
+      <div id="blob2" class="absolute -bottom-24 -right-24 w-72 h-72 rounded-full blur-3xl opacity-40"
+           style="background:radial-gradient(circle,#38BDF8,transparent 60%)"></div>
     </div>
 
-    <!-- 🔹 SQL, Excel, Machine Learning Projects (2x2 Layout) -->
-    <div class="projects-grid" style="margin-top: 40px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
-    <a href="https://drive.google.com/file/d/1qBYITVeou-lsyk-Kg3OvUvjSonp9tkdE/view?usp=sharing" target="_blank" class="project">
-        <img src="carsales.jpg" alt="SQL Project">
-        <div class="overlay">
-            <h3>SQL Insights</h3>
-            <p>Analyzed large datasets using SQL queries to identify trends and key metrics.</p>
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="fade-in">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          <span class="gradient-text">Hello, I'm</span><br>
+          <span id="typewriter" class="text-gray-800"></span>
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          Data Analyst • exploring Data Engineering & Data Science
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#projects" class="magnet px-8 py-4 bg-primary text-white rounded-full hover:bg-opacity-90 transition-all transform hover:scale-105 inline-block">
+            View My Work
+          </a>
+          <a href="https://drive.google.com/file/d/1EwVWDqa6tyX8Vgs09F1c-x2rabqs1fh2/view?usp=sharing" download
+             class="magnet px-8 py-4 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all inline-block text-center">
+            Download CV
+          </a>
         </div>
-    </a>
+      </div>
+    </div>
+  </section>
 
-    <a href="https://docs.google.com/spreadsheets/d/1_e2NUd1fX5zClKL-qj-LNVco69jnkNlz/edit?usp=sharing&ouid=107652725402534810944&rtpof=true&sd=true" target="_blank" class="project">
-        <img src="winesales.jpg" alt="Excel Project">
-        <div class="overlay">
-            <h3>Excel Dashboard</h3>
-            <p>Created Excel dashboards and KPI metrics to summarize business performance.</p>
+  <!-- About Section -->
+  <section id="about" class="py-20 section-bg">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text fade-in">About Me</h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="slide-in-left">
+          <h3 class="text-2xl font-bold mb-6">Summary</h3>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            I’m a Data Analyst who loves turning messy, real-world data into clean insights and simple tools.
+            I’m currently expanding into <span class="font-semibold">Data Engineering</span> (pipelines, orchestration, cloud)
+            and <span class="font-semibold">Data Science</span> (feature engineering, modeling, evaluation).
+          </p>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            I focus on practical impact: fast dashboards, reliable ETL, and models that ship. Clean code, strong UX, and reproducible analyses are my defaults.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm">Data Storytelling</span>
+            <span class="px-4 py-2 bg-secondary/10 text-secondary rounded-full text-sm">ETL & Pipelines</span>
+            <span class="px-4 py-2 bg-accent/10 text-accent rounded-full text-sm">MLOps Curious</span>
+          </div>
         </div>
-    </a>
-
-    <a href="https://github.com/ShreeyaBadhe/Sentiment-Analysis.git" target="_blank" class="project">
-        <img src="sentiment_analysis.jpg" alt="ML Project">
-        <div class="overlay">
-            <h3>Sentiment Analysis</h3>
-            <p>Built a sentiment classifier with Word2Vec, trained SVM & Perceptron, optimized with Gensim, NumPy, and pandas</p>
+        <div class="slide-in-right">
+          <div class="relative max-w-md mx-auto">
+            <div class="gradient-border p-1 rounded-2xl">
+              <div class="bg-white rounded-2xl p-6 text-center">
+                <!-- Profile photo -->
+                <img src="images/profile.jpg" alt="Shreeya Badhe profile photo"
+                     class="w-48 h-48 mx-auto object-cover rounded-full border-4 border-white shadow-md mb-4">
+                <h4 class="text-xl font-bold mb-1">Shreeya Badhe</h4>
+              </div>
+            </div>
+          </div>
         </div>
-    </a>
-
-    <a href="https://github.com/ShreeyaBadhe/House-Price-Prediction.git" target="_blank" class="project">
-        <img src="house_price.jpg" alt="ML Project 2">
-        <div class="overlay">
-            <h3>House Price Prediction</h3>
-            <p>Built a Ridge Regression model (RMSLE 0.11) with polynomial features, optimized preprocessing, and fine-tuned hyperparameters.</p>
-        </div>
-    </a>
-</div>
-
-<section id="cool-builds">
-  <h2 style="text-align: center; font-size: 2rem; margin-bottom: 30px;">Cool Builds</h2>
-  <div class="projects-grid" style="grid-template-columns: repeat(4, 1fr); gap: 20px; background: none; border: none;">
-
-    <!-- Oil Slick Shader -->
-    <a href="https://github.com/ShreeyaBadhe/Shaders.git" target="_blank" class="cool-project-card">
-      <img src="oil_slicks.png" alt="Oil Slicks Shader">
-      <div class="cool-overlay">
-        <h3>Oil Slicks Shader</h3>
-        <p>Shiny animated shader effect created with OpenGL & GLSL.</p>
       </div>
-    </a>
+    </div>
+  </section>
 
-    <!-- Spaceship Animation -->
-    <a href="https://media.oregonstate.edu/media/t/1_uzagfjip" target="_blank" class="cool-project-card">
-      <img src="spaceship.jpg" alt="Spaceship Animation">
-      <div class="cool-overlay">
-        <h3>Spaceship Animation</h3>
-        <p>OpenGL-based spaceship animation with lighting and motion.</p>
-      </div>
-    </a>
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text fade-in">Projects</h2>
 
-    <!-- Linear Hashing Project -->
-    <a href="https://github.com/ShreeyaBadhe/DBMS" target="_blank" class="cool-project-card">
-      <img src="database.jpg" alt="Linear Hashing Project">
-      <div class="cool-overlay">
-        <h3>Employee Indexing in C++</h3>
-        <p>Fast employee record lookup using linear hashing & binary file storage.</p>
-      </div>
-    </a>
-
-    <!-- More Projects -->
-    <a href="https://github.com/ShreeyaBadhe" target="_blank" class="cool-project-card">
-      <img src="more.jpg" alt="More Cool Projects">
-      <div class="cool-overlay">
-        <h3>More Cool Projects</h3>
-        <p>Click here to explore more of my creative builds and code demos.</p>
-      </div>
-    </a>
-
-  </div>
-</section>
+      <div class="grid md:grid-cols-2 gap-8 stagger">
+        <!-- Crop Recommendation -->
+        <a href="https://github.com/ShreeyaBadhe/Crop-Recommendation" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/crop.jpg" alt="Placeholder ML Project"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Crop Recommendation</h3>
+              <p class="text-gray-600 mb-4">Integrated soil and climate data to suggest optimal crops.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">transformers</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">lightGBM</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">seaborn</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">pandas</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">plotly</span>
 
 
-<section id="apps">
-  <h2 style="text-align: center; font-size: 2rem; margin-bottom: 30px;">Featured Apps</h2>
-  <div class="projects-grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
-    
-    <!-- GenAI App -->
-    <a href="https://data-analysis-assistant-zsemfa9fdbd59b7wbhbr5r.streamlit.app/" target="_blank" class="cool-project-card">
-      <img src="genai.png" alt="GenAI Assistant">
-      <div class="cool-overlay">
-        <h3>GenAI Analysis Assistant</h3>
-        <p>A Streamlit app that merges datasets, detects missing values, and uses GenAI for Q&A and KPI suggestions.</p>
-      </div>
-    </a>
-
-    <!-- Web Scraping App -->
-    <a href="https://github.com/ShreeyaBadhe/Retail-Analysis" target="_blank" class="cool-project-card">
-      <img src="webscraper_app.jpg" alt="Retail Price Tracker">
-      <div class="cool-overlay">
-        <h3>Retail Price Tracker</h3>
-        <p>Tracks product prices using web scraping. Includes filters, product insights, and brand-wise comparisons.</p>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-           
-   
-    
-    <section id="experiences" class="qualification-experience">
-        <div class="container">
-            <div class="qualification">
-                <h2><span>ACADEMIC</span> <span class="highlight">QUALIFICATION</span></h2>
-                <div class="timeline">
-                    <div class="entry">
-                        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
-                        <div class="details">
-                            <h3>Masters in Computer Science</h3>
-                            <p>Oregon State University (2023 - 2025)</p>
-                            <p>GPA: 3.95</p>
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="icon"><i class="fas fa-school"></i></div>
-                        <div class="details">
-                            <h3>Bachelor's in Computer Science</h3>
-                            <p>JB Institute of Engineering and Technology (2019 - 2023)</p>
-                            <p>GPA: 3.7</p>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-    
-            <div class="experience">
-                <h2><span>JOB</span> <span class="highlight">EXPERIENCE</span></h2>
-                <div class="timeline">
-                    <div class="entry">
-                        <div class="icon"><i class="fas fa-briefcase"></i></div>
-                        <div class="details">
-                            <h3>Software Developer</h3>
-                            <p>Extension Services (Dec 2024 - present)</p>
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="icon"><i class="fas fa-code"></i></div>
-                        <div class="details">
-                            <h3>Data Analyst</h3>
-                            <p>Simplpos (Sep 2024 - Feb 2025)</p>
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="icon"><i class="fas fa-laptop-code"></i></div>
-                        <div class="details">
-                            <h3>Oregon State University IT</h3>
-                            <p>Digital Experience Assistant (Nov 2024 - present)</p>
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="icon"><i class="fas fa-laptop-code"></i></div>
-                        <div class="details">
-                            <h3>Outdoor School Extension Services</h3>
-                            <p>Website Assistant (Sep 2024 - Nov 2024)</p>
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="icon"><i class="fas fa-code"></i></div>
-                        <div class="details">
-                            <h3>Machine Learning Intern</h3>
-                            <p>Pantech Solutions (Dec 2021 -Mar 2022)</p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+        </a>
+
+        <!-- Placeholder project 2 (replace later) -->
+        <a href="https://github.com/ShreeyaBadhe/water-potability" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/water.jpg" alt="Placeholder Anomaly Project"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Water Potability Classification</h3>
+              <p class="text-gray-600 mb-4">Classified water potability using physicochemical features.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Scikit-learn</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">imbalanced-learn</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">numpy</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">pandas</span>
+
+              </div>
             </div>
-        </div>
-    </section>
-           
-            
-   
-    
-    <section id="skills">
-  
-    <div class="skills-container">
-        <div class="skills">
-            <h2><span>DATA ANALYSIS SKILLS</span></h2>
-            <div class="skill">
-                <p>Python <span>85%</span></p>
-                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
-            </div>
-            <div class="skill">
-                <p>C++ <span>80%</span></p>
-                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
-            </div>
-            <div class="skill">
-                <p>PowerBI <span>90%</span></p>
-                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
-            </div>
-            <div class="skill">
-                <p>Machine Learning <span>75%</span></p>
-                <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
-            </div>
-            <div class="skill">
-                <p>SQL <span>95%</span></p>
-                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
-            </div>
-        </div>
+          </div>
+        </a>
         
-        <div class="skills">
-            <h2><span>WEB DESIGN SKILLS</span></h2>
-            <div class="skill">
-                <p>HTML <span>90%</span></p>
-                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+        <!-- Car Sales -->
+        <a href="https://github.com/ShreeyaBadhe/Car-Sales" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/car.png" alt="Car Sales"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Car Sales Analytics</h3>
+              <p class="text-gray-600 mb-4">Pricing trends and demand analysis with Power BI dashboard.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Power BI</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">KPIs</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Microsoft Excel</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">DAX</span>
+              </div>
             </div>
-            <div class="skill">
-                <p>CSS <span>85%</span></p>
-                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+          </div>
+        </a>
+        <!-- Sales Dashboard -->
+        <a href="https://public.tableau.com/app/profile/shreeya.badhe/viz/SalesAnalysis_17550356863060/Dashboard1" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/salesdashboard.png" alt="Weather Prediction ETL"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Sales Dashboard</h3>
+              <p class="text-gray-600 mb-4">Dashboard to track KPIs, regional performance, segment-wise trends.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Tableau</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">KPIs</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Data Modeling</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Python</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Excel</span>
+              </div>
             </div>
-            <div class="skill">
-                <p>JavaScript <span>60%</span></p>
-                <div class="progress-bar"><div class="progress" style="width: 60%;"></div></div>
+          </div>
+        </a>
+
+        
+        <a href="https://drive.google.com/file/d/1W9zNn3P3lgfwvTmk3fE4_mT6DI9ivzXs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/surveybreakdown.png" alt="survey breakdown dashboard"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Data Professional Survey Breakdown</h3>
+              <p class="text-gray-600 mb-4">Pricing trends and demand analysis with clean dashboards.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Power BI</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">DAX</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">EDA</span>
+              </div>
             </div>
-            <div class="skill">
-                <p>Drupal <span>95%</span></p>
-                <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+          </div>
+        </a>
+        <!-- Retail Analysis -->
+        <a href="https://github.com/ShreeyaBadhe/Retail-Analysis" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/demo_retail.gif" alt="Retail Analysis"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Retail Analysis</h3>
+              <p class="text-gray-600 mb-4">Tool for analyzing and filtering e-commerce shoe listings.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Web Crawling</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Selenium</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Python</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Pandas</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Streamlit</span>
+
+              </div>
             </div>
-        </div>
-    
-    </div>
-    </section>
-   <section id="certifications" style="padding: 40px 20px; background: #1e1e1e; border-radius: 10px; margin: 20px;">
-  <h2 style="color: white; font-size: 2rem; margin-bottom: 30px;">Certifications</h2>
+          </div>
+        </a>
+         <!-- ETL (Weather Prediction) -->
+        <a href="https://github.com/ShreeyaBadhe/ETL" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/weather.jpg" alt="Weather Prediction ETL"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Weather Prediction ETL</h3>
+              <p class="text-gray-600 mb-4">Data ingestion + feature engineering for forecasting weather signals.</p>
+              <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">MYSQL DB</span>
+                    <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">API Integration</span>
+                    <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Pandas</span>
+                    <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">ETL</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="https://github.com/ShreeyaBadhe/Sentiment-Analysis" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/sentiment_analysis.jpg" alt="Sentiment Analysis"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Sentiment Analysis</h3>
+              <p class="text-gray-600 mb-4">End‑to‑end NLP pipeline for opinion mining with model evaluation.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Python</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">scikit‑learn</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">NLP</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        
+        <a href="https://github.com/ShreeyaBadhe/House-Price-Prediction" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/house_price.jpg" alt="Sentiment Analysis"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">House Price Prediction</h3>
+              <p class="text-gray-600 mb-4"> House Price Prediction model using advanced regression techniques.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">XGBoost</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">RMSLE</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">lightGBM</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">NumPy</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Python</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        
+       
 
-  <div style="display: flex; flex-direction: column; gap: 20px;">
+        <!-- DBMS -->
+        <a href="https://github.com/ShreeyaBadhe/DBMS" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/database.jpg" alt="DBMS Project"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Relational DBMS Project</h3>
+              <p class="text-gray-600 mb-4">Schema design, indexing, and query optimization experiments.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">C++</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">SQL</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Query Optimization</span>
+              </div>
+            </div>
+          </div>
+        </a>
 
-    <!-- Certification 1 -->
-    <a href="https://www.credly.com/badges/34db7158-dbed-4dd8-8dff-f512479b0afc/linked_in_profile" target="_blank"
-       style="display: flex; align-items: center; gap: 20px; background: #2a2a2a; padding: 15px; border-radius: 10px; text-decoration: none;">
+        <!-- Shaders -->
+        <a href="https://github.com/ShreeyaBadhe/Shaders" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/shaders.gif" alt="Shaders"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">Shaders & Visuals</h3>
+              <p class="text-gray-600 mb-4">GPU shader explorations and interactive visual pieces.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">GLSL</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">WebGL</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Graphics</span>
+              </div>
+            </div>
+          </div>
+        </a>
 
-      <!-- Small square thumbnail with glow -->
-      <img src="certification_badge.png" alt="Google Data Analyst Badge" class="glow-thumb">
+        <!-- OpenGL Projects -->
+        <a href="https://github.com/ShreeyaBadhe/OpenGL_Projects" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="gradient-border p-1 rounded-xl">
+            <div class="bg-white rounded-xl p-6 h-full tilt cursor-pointer">
+              <img src="images/spaceship.gif" alt="OpenGL Projects"
+                   class="w-full h-48 object-cover rounded-lg mb-4">
+              <h3 class="text-xl font-bold mb-2">OpenGL Projects</h3>
+              <p class="text-gray-600 mb-4">Rendering pipeline experiments and 3D graphics demos.</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">C++</span>
+                <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">OpenGL</span>
+                <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">3D</span>
+              </div>
+            </div>
+          </div>
+        </a>
 
-      <!-- Certification details -->
-      <div>
-        <h3 style="color: #f6c90e; margin: 0;">Google Data Analytics</h3>
-        <p style="margin: 5px 0 0; color: #ccc;">Professional Certificate – Issued by Google via Coursera</p>
+        
       </div>
+    </div>
+  </section>
 
-    </a>
+  <!-- Apps / Web Tools Section -->
+  <section id="apps" class="py-20 section-bg">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text fade-in">Web Apps & Tools</h2>
+      <div class="grid md:grid-cols-3 gap-8 stagger">
+        <!-- Data Analysis Assistant -->
+        <a href="https://github.com/ShreeyaBadhe/Data-Analysis-Assistant" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow tilt cursor-pointer">
+            <img src="images/demo_data_analysis.gif" alt="Data Analysis Assistant"
+                 class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold mb-2">Data Analysis Assistant</h3>
+            <p class="text-gray-600 mb-4">LLM‑assisted notebook for cleaning, EDA, and quick viz.</p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">Python</span>
+              <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Streamlit</span>
+            </div>
+          </div>
+        </a>
 
-  </div>
-</section>
+        <!-- MEDOPTIX -->
+        <a href="https://github.com/ShreeyaBadhe/MEDOPTIX" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow tilt cursor-pointer">
+            <img src="images/demo_medoptix.gif" alt="MEDOPTIX"
+                 class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold mb-2">MedOptix</h3>
+            <p class="text-gray-600 mb-4">Healthcare claims analytics with cost modeling & dashboards.</p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">XGBoost</span>
+              <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Streamlit</span>
+            </div>
+          </div>
+        </a>
 
+        <!-- AI Sales Agent -->
+        <a href="https://github.com/ShreeyaBadhe/AI-Sales-agent" target="_blank" rel="noopener noreferrer" class="block hover:no-underline fade-in">
+          <div class="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow tilt cursor-pointer">
+            <img src="images/demo.gif" alt="AI Sales Agent"
+                 class="w-full h-48 object-cover rounded-lg mb-4">
+            <h3 class="text-xl font-bold mb-2">AI Sales Agent</h3>
+            <p class="text-gray-600 mb-4">Conversational agent for product Q&A and order workflows.</p>
+            <div class="flex gap-2">
+              <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">LangChain</span>
+              <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">SQLite</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
+  <!-- Experience Section (unchanged structure) -->
+  <section id="experience" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text fade-in">Experience & Education</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="slide-in-left">
+          <h3 class="text-2xl font-bold mb-8 text-center">Education</h3>
+          <div class="relative timeline">
+            <div class="relative pl-12 pb-8">
+              <div class="absolute left-2 w-4 h-4 bg-primary rounded-full"></div>
+              <div class="bg-gray-50 rounded-lg p-4">
+                <h4 class="font-bold text-lg">Master's in Computer Science</h4>
+                <p class="text-primary font-medium">Oregon State University</p>
+                <p class="text-gray-600 text-sm">2023 - 2025</p>
+                <p class="text-gray-700 mt-2">Specialized in Data Analysis and Machine Learning</p>
+              </div>
+            </div>
+            <div class="relative pl-12 pb-8">
+              <div class="absolute left-2 w-4 h-4 bg-secondary rounded-full"></div>
+              <div class="bg-gray-50 rounded-lg p-4">
+                <h4 class="font-bold text-lg">Bachelor's in Computer Science</h4>
+                <p class="text-primary font-medium">JB Institute of Engineering and Technology</p>
+                <p class="text-gray-600 text-sm">2019 - 2023</p>
+                <p class="text-gray-700 mt-2">Specialized in Machine Learning, Cloud Technologies, Web Development</p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <section id="contact">
-        <h2 style="color: white; font-size: 2rem; margin-left: 30px;">Contact Me</h2>
-
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 30px; background: #1e1e1e; border-radius: 10px;">
-            <!-- Avatar Image -->
-            <div style="flex: 1; text-align: center;">
-                <img src="avatar.jpg" alt="Your Avatar" style="width: 200px; height: 200px; border-radius: 50%">
+        <div class="slide-in-right">
+          <h3 class="text-2xl font-bold mb-8 text-center">Work Experience</h3>
+          <div class="relative timeline">
+            <div class="relative pl-12 pb-8">
+              <div class="absolute left-2 w-4 h-4 bg-primary rounded-full"></div>
+              <div class="bg-gray-50 rounded-lg p-4">
+                <h4 class="font-bold text-lg">Data Analyst</h4>
+                <p class="text-primary font-medium">SIMPLPOS</p>
+                <p class="text-gray-600 text-sm">September 2024 - May 2025</p>
+                <p class="text-gray-700 mt-2">Streamlined POS data workflows with ETL pipelines, API integrations, and Power BI dashboards, improving efficiency by 25–40%.</p>
+              </div>
+            </div>
+            <div class="relative pl-12">
+              <div class="absolute left-2 w-4 h-4 bg-accent rounded-full"></div>
+              <div class="bg-gray-50 rounded-lg p-4">
+                <h4 class="font-bold text-lg">Digital Experience Assistant</h4>
+                <p class="text-primary font-medium">Oregon State University</p>
+                <p class="text-gray-600 text-sm">November 2024- June 2025</p>
+                <p class="text-gray-700 mt-2">Migrated Drupal websites with responsive, accessible designs, reducing accessibility issues by 25%.</p>
+              </div>
+            </div>
+            <div class="relative pl-12">
+              <div class="absolute left-2 w-4 h-4 bg-accent rounded-full"></div>
+              <div class="bg-gray-50 rounded-lg p-4">
+                <h4 class="font-bold text-lg">Website Assistant</h4>
+                <p class="text-primary font-medium">Outdoor School Extension Services</p>
+                <p class="text-gray-600 text-sm">September 2024- November 2024</p>
+                <p class="text-gray-700 mt-2">Migrated 30+ pages from Umbraco to Drupal with HTML/CSS, enhancing site structure and user experience.</p>
+              </div>
+            </div>
+            <div class="relative pl-12 pb-8">
+              <div class="absolute left-2 w-4 h-4 bg-secondary rounded-full"></div>
+              <div class="bg-gray-50 rounded-lg p-4">
+                <h4 class="font-bold text-lg">Analytics Engineer</h4>
+                <p class="text-primary font-medium">Pine Valley Interiors</p>
+                <p class="text-gray-600 text-sm">June 2022 - September 2023</p>
+                <p class="text-gray-700 mt-2">Built a Flask–PostgreSQL website with automated trend analysis and KPI dashboards, cutting reporting time by 30%.</p>
+              </div>
             </div>
             
-            <!-- Contact Form -->
-            <div style="flex: 2;">
-                
-                <form action="https://formspree.io/f/xanqdrpw" method="POST" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px;">
-                    <input type="text" name="name" placeholder="Your Name" required style="padding: 10px; border-radius: 5px; border: none; font-size: 16px;">
-                    <input type="email" name="email" placeholder="Your Email" required style="padding: 10px; border-radius: 5px; border: none; font-size: 16px;">
-                    <textarea name="message" placeholder="Your Message" rows="4" required style="padding: 10px; border-radius: 5px; border: none; font-size: 16px;"></textarea>
-                    <button type="submit" style="background: linear-gradient(90deg, #d59e06, #644d02); color: white; cursor: pointer; font-weight: bold; padding: 10px; border: none; border-radius: 5px; font-size: 16px;">Send</button>
-                </form>
-            </div>
+          </div>
         </div>
-    </section>
 
-    <script>
-        function toggleMenu() {
-            document.querySelector('.nav-links').classList.toggle('show');
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 section-bg">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text fade-in">Skills</h2>
+      <div class="grid md:grid-cols-3 gap-8 stagger">
+        <div class="fade-in">
+          <h3 class="text-xl font-bold mb-6 text-center">Analytics & DS</h3>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <span>Python (Pandas)</span>
+              <div class="w-32 bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full skill" data-target="90"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>SQL</span>
+              <div class="w-32 bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full skill" data-target="92"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>ML (sklearn/XGB)</span>
+              <div class="w-32 bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-primary to-secondary h-2 rounded-full skill" data-target="80"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <h3 class="text-xl font-bold mb-6 text-center">Data Engineering</h3>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <span>ETL / Pipelines</span>
+              <div class="w-32 bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-secondary to-accent h-2 rounded-full skill" data-target="82"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>PostgreSQL</span>
+              <div class="w-32 bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-secondary to-accent h-2 rounded-full skill" data-target="85"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>Cloud (AWS)</span>
+              <div class="w-32 bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-secondary to-accent h-2 rounded-full skill" data-target="75"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <h3 class="text-xl font-bold mb-6 text-center">Viz & Tools</h3>
+          <div class="space-y-4">
+            <div class="flex justify-between items-center">
+              <span>Power BI / Plotly</span>
+              <div class="w-32 bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-accent to-primary h-2 rounded-full skill" data-target="85"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>Git</span>
+              <div class="w-32 bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-accent to-primary h-2 rounded-full skill" data-target="92"></div>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <span>Docker</span>
+              <div class="w-32 bg-gray-200 rounded-full h-2">
+                <div class="bg-gradient-to-r from-accent to-primary h-2 rounded-full skill" data-target="72"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text fade-in">Certifications</h2>
+      <div class="grid md:grid-cols-2 gap-8 stagger">
+        <div class="fade-in">
+          <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl p-6 text-center tilt">
+            <div class="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🏆</div>
+            <h3 class="font-bold text-lg mb-2">SQL</h3>
+            <p class="text-gray-600 text-sm mb-2">Hackerrank</p>
+          </div>
+        </div>
+        <div class="fade-in">
+          <div class="bg-gradient-to-br from-secondary/10 to-accent/10 rounded-xl p-6 text-center tilt">
+            <div class="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">🎯</div>
+            <h3 class="font-bold text-lg mb-2">Google Data Analytics Professional</h3>
+            <p class="text-gray-600 text-sm mb-2">Google-Coursera</p>
+            <!--<p class="text-gray-500 text-xs">Valid until 2024</p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 gradient-bg">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-4xl font-bold text-white mb-8 fade-in">Let's Work Together</h2>
+      <p class="text-xl text-white/90 mb-12 fade-in">Have a project in mind? I'd love to hear about it.</p>
+
+      <div class="grid md:grid-cols-2 gap-8 mb-12 stagger">
+        <div class="fade-in">
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4">Get In Touch</h3>
+            <div class="space-y-3 text-white/90">
+              <p>📧 badheshreeya2001@gmail.com</p>
+              <p>📍 Oregon, United States</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in">
+          <div class="bg-white/10 backdrop-blur-md rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4">Follow Me</h3>
+            <div class="flex justify-center space-x-4">
+              <a href="https://www.linkedin.com/in/shreeya-badhe/" class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">LinkedIn</a>
+              <a href="https://github.com/ShreeyaBadhe" class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <button id="cta-start" class="px-8 py-4 bg-white text-purple-600 rounded-full font-bold hover:bg-gray-100 transition-all transform hover:scale-105">
+          Start a Conversation
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9) Cursor Blob -->
+  <div id="cursorBlob"
+       class="fixed top-0 left-0 w-24 h-24 rounded-full pointer-events-none mix-blend-multiply opacity-25 blur-2xl"
+       style="background: radial-gradient(circle,#8B5CF6, transparent 60%); transform: translate(-50%,-50%);">
+  </div>
+
+  <script>
+    // Dark mode detection
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      if (event.matches) document.documentElement.classList.add('dark');
+      else document.documentElement.classList.remove('dark');
+    });
+
+    // Intersection Observer for animations
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .stagger, .timeline')
+      .forEach(el => observer.observe(el));
+
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetSel = this.getAttribute('href');
+        if (!targetSel || targetSel === '#') return;
+        const target = document.querySelector(targetSel);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-    </script>
+      });
+    });
 
+    // Nav shadow on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 100) nav.classList.add('shadow-lg');
+      else nav.classList.remove('shadow-lg');
+    }, { passive: true });
+
+    // 1) Typewriter
+    const words = ["Shreeya Badhe", "Data Analyst"];
+    let wi=0, ci=0, erasing=false;
+    const el = document.getElementById("typewriter");
+    function tick(){
+      if(!el) return;
+      const word=words[wi];
+      el.textContent = erasing ? word.slice(0, --ci) : word.slice(0, ++ci);
+      el.classList.add('type-caret');
+      if(!erasing && ci===word.length){ setTimeout(()=>erasing=true, 900); }
+      if(erasing && ci===0){ erasing=false; wi=(wi+1)%words.length; }
+      setTimeout(tick, erasing? 35 : 80);
+    }
+    tick();
+
+    // 2) Magnetic buttons
+    document.querySelectorAll('.magnet').forEach(btn=>{
+      btn.addEventListener('mousemove', e=>{
+        const r=btn.getBoundingClientRect();
+        const x=e.clientX - (r.left + r.width/2);
+        const y=e.clientY - (r.top + r.height/2);
+        btn.style.transform = `translate(${x*0.06}px, ${y*0.06}px) scale(1.03)`;
+      });
+      btn.addEventListener('mouseleave', ()=> btn.style.transform = "");
+    });
+
+    // 3) Parallax blobs
+    const lerp = (a,b,t)=>a+(b-a)*t;
+    let tx1=0,ty1=0,tx2=0,ty2=0;
+    window.addEventListener('mousemove', e=>{
+      const {innerWidth:w, innerHeight:h}=window;
+      const nx=(e.clientX/w-0.5), ny=(e.clientY/h-0.5);
+      tx1=nx*30; ty1=ny*30; tx2=-nx*30; ty2=-ny*30;
+    }, { passive:true });
+    function animateBlobs(){
+      const b1=document.getElementById('blob1'), b2=document.getElementById('blob2');
+      if(b1){
+        const x=lerp(parseFloat(b1.dataset.x||0),tx1,.06), y=lerp(parseFloat(b1.dataset.y||0),ty1,.06);
+        b1.style.transform=`translate(${x}px,${y}px)`; b1.dataset.x=x; b1.dataset.y=y;
+      }
+      if(b2){
+        const x=lerp(parseFloat(b2.dataset.x||0),tx2,.06), y=lerp(parseFloat(b2.dataset.y||0),ty2,.06);
+        b2.style.transform=`translate(${x}px,${y}px)`; b2.dataset.x=x; b2.dataset.y=y;
+      }
+      requestAnimationFrame(animateBlobs);
+    }
+    animateBlobs();
+
+    // 5) Tilt on hover
+    document.querySelectorAll('.tilt').forEach(card=>{
+      card.addEventListener('mousemove', e=>{
+        const r=card.getBoundingClientRect(), x=e.clientX - r.left, y=e.clientY - r.top;
+        const rx = ((y/r.height)-0.5)*-8; const ry = ((x/r.width)-0.5)*8;
+        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      });
+      card.addEventListener('mouseleave', ()=> card.style.transform = "perspective(800px) rotateX(0) rotateY(0)");
+    });
+
+    // 6) Scroll progress bar
+    const navEl = document.querySelector('nav');
+    const scrollBar = document.getElementById('scrollbar');
+    function updateScrollBar() {
+      if (navEl && scrollBar) scrollBar.style.top = navEl.offsetHeight + 'px';
+      const s=window.scrollY, h=document.body.scrollHeight - window.innerHeight;
+      const pct = h>0 ? (s/h)*100 : 0;
+      scrollBar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateScrollBar, { passive:true });
+    window.addEventListener('resize', updateScrollBar);
+    updateScrollBar();
+
+    // 8) Animate skill bars on enter (force width)
+    const skillsSection = document.querySelector('#skills');
+    if(skillsSection){
+      const skillObserver = new IntersectionObserver((entries, obs)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            e.target.querySelectorAll('.skill').forEach(b=>{
+              b.style.setProperty('width', (b.dataset.target || 80) + '%', 'important');
+            });
+            obs.unobserve(e.target);
+          }
+        });
+      },{threshold:.3});
+      skillObserver.observe(skillsSection);
+    }
+
+    // 9) Cursor blob follow
+    const blob=document.getElementById('cursorBlob'); let bx=0,by=0, tx=0,ty=0;
+    window.addEventListener('mousemove', e=>{ tx=e.clientX; ty=e.clientY; }, { passive:true });
+    (function loop(){
+      if (blob){
+        bx = lerp(bx, tx, .12); by = lerp(by, ty, .12);
+        blob.style.left=bx+'px'; blob.style.top=by+'px';
+      }
+      requestAnimationFrame(loop);
+    })();
+
+    // 10) Micro-confetti on CTA
+    function confetti(x,y){
+      for(let i=0;i<18;i++){
+        const p=document.createElement('span');
+        p.className="pointer-events-none fixed w-1.5 h-1.5 rounded-full";
+        p.style.left=x+'px'; p.style.top=y+'px';
+        p.style.background=`hsl(${Math.random()*360},90%,60%)`;
+        document.body.appendChild(p);
+        const dx=(Math.random()-.5)*180, dy=(Math.random()-.8)*220;
+        p.animate(
+          [{transform:'translate(0,0)', opacity:1},
+           {transform:`translate(${dx}px,${dy}px)`, opacity:0}],
+          {duration:700, easing:'cubic-bezier(.21,.61,.35,1)'}
+        ).finished.then(()=>p.remove());
+      }
+    }
+    const cta=document.getElementById('cta-start');
+    if(cta) cta.addEventListener('click', e=> confetti(e.clientX, e.clientY));
+  </script>
 </body>
 </html>
-
