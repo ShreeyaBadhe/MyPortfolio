@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Art Gallery - Shreeya Badhe</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#5D5CDE',
+            secondary: '#38BDF8',
+            accent: '#8B5CF6'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .gradient-text {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .gallery-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.10);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-slate-50">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex justify-between items-center">
+
+        <a href="index.html" class="text-2xl font-bold gradient-text">
+          Portfolio
+        </a>
+
+        <div class="flex items-center gap-6">
+          <a
+            href="index.html"
+            class="hover:text-primary transition-colors"
+          >
+            Home
+          </a>
+
+          <a
+            href="index.html#art"
+            class="text-primary font-medium"
+          >
+            Art
+          </a>
+
+          <a
+            href="index.html#contact"
+            class="hover:text-primary transition-colors"
+          >
+            Contact
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="pt-36 pb-16 bg-gradient-to-br from-slate-100 to-indigo-50">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <p class="text-primary font-semibold uppercase tracking-widest mb-3">
+        Creative Portfolio
+      </p>
+
+      <h1 class="text-5xl md:text-6xl font-bold gradient-text mb-6">
+        Art Gallery
+      </h1>
+
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        A collection of traditional drawings, paintings, illustrations and
+        creative experiments.
+      </p>
+    </div>
+  </header>
+
+  <!-- Gallery -->
+  <main class="py-20">
+    <div class="max-w-6xl mx-auto px-4">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Artwork 1 -->
+        <article class="gallery-card fade-in bg-white rounded-2xl overflow-hidden shadow-md">
+          <img
+            src="images/art/art-1.jpg"
+            alt="Artwork title one"
+            loading="lazy"
+            class="w-full h-80 object-cover"
+          >
+
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">
+              Artwork Title One
+            </h2>
+
+            <p class="text-gray-500 text-sm">
+              Pencil drawing • 2026
+            </p>
+          </div>
+        </article>
+
+        <!-- Artwork 2 -->
+        <article class="gallery-card fade-in bg-white rounded-2xl overflow-hidden shadow-md">
+          <img
+            src="images/art/art-2.jpg"
+            alt="Artwork title two"
+            loading="lazy"
+            class="w-full h-80 object-cover"
+          >
+
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">
+              Artwork Title Two
+            </h2>
+
+            <p class="text-gray-500 text-sm">
+              Digital illustration • 2026
+            </p>
+          </div>
+        </article>
+
+        <!-- Artwork 3 -->
+        <article class="gallery-card fade-in bg-white rounded-2xl overflow-hidden shadow-md">
+          <img
+            src="images/art/art-3.jpg"
+            alt="Artwork title three"
+            loading="lazy"
+            class="w-full h-80 object-cover"
+          >
+
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">
+              Artwork Title Three
+            </h2>
+
+            <p class="text-gray-500 text-sm">
+              Watercolor • 2025
+            </p>
+          </div>
+        </article>
+
+        <!-- Artwork 4 -->
+        <article class="gallery-card fade-in bg-white rounded-2xl overflow-hidden shadow-md">
+          <img
+            src="images/art/art-4.jpg"
+            alt="Artwork title four"
+            loading="lazy"
+            class="w-full h-80 object-cover"
+          >
+
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">
+              Artwork Title Four
+            </h2>
+
+            <p class="text-gray-500 text-sm">
+              Charcoal drawing • 2025
+            </p>
+          </div>
+        </article>
+
+        <!-- Artwork 5 -->
+        <article class="gallery-card fade-in bg-white rounded-2xl overflow-hidden shadow-md">
+          <img
+            src="images/art/art-5.jpg"
+            alt="Artwork title five"
+            loading="lazy"
+            class="w-full h-80 object-cover"
+          >
+
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">
+              Artwork Title Five
+            </h2>
+
+            <p class="text-gray-500 text-sm">
+              Acrylic painting • 2025
+            </p>
+          </div>
+        </article>
+
+        <!-- Artwork 6 -->
+        <article class="gallery-card fade-in bg-white rounded-2xl overflow-hidden shadow-md">
+          <img
+            src="images/art/art-6.jpg"
+            alt="Artwork title six"
+            loading="lazy"
+            class="w-full h-80 object-cover"
+          >
+
+          <div class="p-6">
+            <h2 class="text-xl font-bold mb-2">
+              Artwork Title Six
+            </h2>
+
+            <p class="text-gray-500 text-sm">
+              Digital art • 2025
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Return Button -->
+      <div class="text-center mt-16">
+        <a
+          href="index.html#art"
+          class="inline-flex items-center gap-2 px-8 py-4 border-2 border-primary text-primary rounded-full hover:bg-primary hover:text-white transition-all"
+        >
+          <span aria-hidden="true">←</span>
+          Back to Portfolio
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="text-gray-400">
+        © 2026 Shreeya Badhe. All artwork is original.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    document.querySelectorAll('.fade-in').forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+
+</body>
+</html>
